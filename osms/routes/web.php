@@ -5,7 +5,7 @@ use App\Http\Controllers\frontend\ProfileController;
 use App\Http\Controllers\frontend\RequestController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\frontend\RequestStatusController;
-
+use App\Http\Controllers\changePasswordController;
 
 
 //Admin Controller;
@@ -55,6 +55,10 @@ Route::resource('frontend/request',RequestController::class);
 Route::get('/generatePdf',[PDFController::class,'generatePDF'])->name('generatePdf');
 Route::get('/status',[RequestStatusController::class,'search'])->name('status');
 Route::get('/statusview',[RequestStatusController::class,'index'])->name('statusview');
+Route::get('/change-my-password', function(){
+ return view('changeuserpassword');
+})->name('change-my-password');
+Route::post('/changePass',[changePasswordController::class,'changePass'])->name('changePass');
 });
 
 

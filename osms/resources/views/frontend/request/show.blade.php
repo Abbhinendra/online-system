@@ -2,7 +2,7 @@
 @section('content')
 <div style="min-height:29vh">
 </div>
-<div class="container-fluid">
+<div class="container-fluid show-user-request">
     @if (session('message'))
         <strong  style="color: green">Success! {{ session('message') }}</strong>
     @endif
@@ -76,7 +76,7 @@
       </table>
       <br>
       <br>
-      <a href="{{route('generatePdf',['pdf_id'=>$userrequest->id])}}" class="btn btn-warning">Download Pdf</a>
+      <a href="{{route('generatePdf',['pdf_id'=>$userrequest->id])}}" class="btn">Download Pdf</a>
 </div>
 <br>
 <br>

@@ -3,7 +3,7 @@
 <div class="main-container">
     <div class="container">
     </div>
-    <div class="content"> 
+    <div class="content">
         <div class="container-for-content">
             @if (session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,11 +15,10 @@
             @endif
             <h2>WELCOME TO OSMS</h2>
             <p>Customers Happines is our Aim</p>
-            <br>
-            <div class="button-box">
             @if(auth()->check())
-           
+            <span class="welcome">Welcome:- {{auth()->user()->email}}</span>
             @else
+            <div class="button-box">
             <a href="{{route('loginpage')}}">Login</a> <a href="{{route('signup')}}">Sign-up</a>
             @endif
             </div>
@@ -40,93 +39,98 @@
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            </div>
         </div>
         <div class="card">
             <div class="image-card">
             <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
             </div>
             <br>
-            <h2>Ac Repair</h2>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
+            <div class="btn-title">
+            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
             </div>
-            <br>
-            <h2>Ac Repair</h2>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <h2>Ac Repair</h2>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <h2>Ac Repair</h2>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <h2>Ac Repair</h2>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <h2>Ac Repair</h2>
         </div>
     </div>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+    <main class="contact-container">
+      <h2 style="text-align: center;">Contact US</h2>
+      <br>
+      <div class="contact-box">
+        <div class="contact-form">
+          <form>
+            <section>
+            <input type="text" name="name" placeholder="Name" required>
+            </section>
+            <section>
+                <input type="text" name="subject" placeholder="Subject" required>
+            </section>
+            <section>
+            <input type="email" name="email" placeholder="E-mail" required>
+            </section>
+            <section>
+            <input type="number" name="number" placeholder="Number" required>
+            </section>
+            <section>
+                <textarea name="message"  cols="20" rows="6" placeholder="How can we help you?"></textarea>
+            </section>
+            <section>
+                <button type="submit">Save</button>
+            </section>
+          </form>
+        </div>
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d237898.2899341742!2d70.4559623!3d21.3046624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9a943f9e45f3%3A0xf670c21ac8392d5e!2sUjala%20Circle!5e0!3m2!1sen!2sin!4v1721490349920!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </main>
 @endsection
 @push('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

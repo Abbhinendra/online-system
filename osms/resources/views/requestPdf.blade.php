@@ -1,5 +1,11 @@
-<table class="table">
+<table class="table" style="background: black; color:white; padding:46px;">
     <tbody>
+        <br>
+        <tr>
+            <th scope="row">Request Id</th>
+            <td>{{$userrequest->id??''}}</td>
+          </tr>
+          <br>
       <tr>
         <th scope="row">Title</th>
         <td>{{$userrequest->title??''}}</td>
@@ -73,6 +79,7 @@
         <th scope="row">Technician_Phone_Number</th>
         <td>{{$userrequest->technicine->number??''}}</td>
       </tr>
+      <br>
       <br>
     </tbody>
   </table>

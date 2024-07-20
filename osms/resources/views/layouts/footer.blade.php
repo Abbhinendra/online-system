@@ -1,3 +1,3 @@
 <footer>
-<span><h2>Follow us on</h2></span>  <span><a href="https://www.instagram.com/abhinendrathakur1">Instagram</a></span>
+<span class="icons"><h4>Follow us on</h4></span>  <span class="icons"><a href="https://www.instagram.com/abhinendrathakur1\"><img src="{{asset('images/insta.svg')}}" alt=""></a></span> <span class="icons"><a href="https://www.instagram.com/abhinendrathakur1\"><img src="{{asset('images/face.svg')}}" alt=""></a></span>
 </footer>
