@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc8585;
+    border-radius: 26px;
+}
+
+header {
+    padding: 12px 12px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #FE4A49;
+    z-index: 6;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav ul li {
+    list-style: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    margin: 10px;
+}
+
+header nav ul a {
+    text-decoration: none;
+    color: white;
+}
+
+header nav .first-container li {
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+header nav .second-container li a:hover {
+    color: rgba(248, 243, 243, 0.6);
+    font-size: 20;
+}
+
+.main-container {
+    position: relative;
+}
+
+.bars {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bars img {
+    cursor: pointer;
+}
+
+.container {
+    height: 100vh;
+    background-image: url('/images/repair.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(100px);
+    filter: contrast(60px);
+    filter: saturate(90px);
+    filter: grayscale(70px);
+}
+
+.content {
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 1, 51, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .container-for-content {
+    color: white;
+}
+
+.content .container-for-content h2 {
+    font-weight: 800;
+    line-height: 1.2;
+    color: #FE4A49;
+}
+
+.container .container-for-content p {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.container-for-content a {
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 6px;
+    color: white;
+    background-color: #fb0e0e;
+    border-radius: 8px;
+}
+
+.container-for-content .button-box {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.about-website {
+    width: 80vw;
+    margin: auto;
+    background-color: gray;
+    border-radius: 8px;
+    color: black;
+    padding: 12px 12px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-website h2 {
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.about-website .osms-content {
+    width: 60vw;
+    margin-top: 12px;
+}
+
+.about-website .osms-content p {
+    line-height: 1.6;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.my-services {
+    width: 90vw;
+    margin:20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.my-services .card {
+    width: 160px;
+    height: 160px;
+    margin: 9px 9px;
+}
+
+.my-services .card .image-card{
+    width:120px;
+    height:120px;
+    border: 2px solid red;
+}
+.my-services .card .image-card img{
+    width: 100%;
+    height: 100%;
+}
+footer{
+    padding: 12px 12px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.min-height{
+    min-height: 22vh;
+}
+.container-fluid form{
+    width: 70vw;
+    padding: 12px 12px;
+    margin: auto;
+}
+
+.FormVailidationErrors{
+    font-size: 16px;
+    color:rgb(255, 0, 0);
+}
+.registration-form input{
+    outline: 2px solid blueviolet;
+    background-color: black;
+    color: white;
+}
+.registration-form .SingUp{
+    background-color: blueviolet;
+    color: white;
+}
+
+
+.requestheight{
+    min-height: 16vh;
+    background-color: black;
+}
+.request-container{
+    padding-bottom: 220px;
+    background-color: black;
+    color: white;
+}
+.request-submit{
+    background-color: black;
+    color: white;
+}
+.request-submit:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 1302px) {
+    .second-container {
+        transition: transform 1s ease-in;
+    }
+
+    .container {
+        background-position: center;
+        margin-top: 5.20%;
+    }
+
+
+    .second-container {
+        transform: translate(-280%);
+        position: absolute;
+        right: 0;
+        top: 98%;
+        z-index: 2;
+        width: 50vw;
+        background-color: #fb0e0e;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10;
+        opacity: 0;
+    }
+
+    .second-container.add {
+        transform: translate(0);
+        opacity: 1;
+    }
+
+    .bars {
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width:300px) {
+    .requestheight{
+        min-height: 26vh;
+    }
+}

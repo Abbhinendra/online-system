@@ -1,0 +1,23 @@
+<svg 
+    width="500" 
+    height="500" 
+    viewBox="0 0 64 64" 
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style>
+            .cls-1 { fill: #2196F3; }
+            .cls-2 { fill: #ffffff; }
+            .cls-3 { fill: #4CAF50; }
+            .cls-4 { fill: #FFC107; }
+        </style>
+    </defs>
+    <circle class="cls-1" cx="32" cy="32" r="30"/>
+    <path class="cls-2" d="M48,32A16,16,0,1,1,32,16,16,16,0,0,1,48,32ZM32,46A14,14,0,1,0,18,32,14,14,0,0,0,32,46Z"/>
+    <path class="cls-3" d="M22,30a1,1,0,0,1,1-1h18a1,1,0,0,1,0,2H23A1,1,0,0,1,22,30Z"/>
+    <path class="cls-3" d="M24,28a1,1,0,0,1,1-1H39a1,1,0,0,1,0,2H25A1,1,0,0,1,24,28Z"/>
+    <path class="cls-3" d="M20,32a1,1,0,0,1,1-1H43a1,1,0,0,1,0,2H21A1,1,0,0,1,20,32Z"/>
+    <path class="cls-3" d="M28,26a1,1,0,0,1,1-1H35a1,1,0,0,1,0,2H29A1,1,0,0,1,28,26Z"/>
+    <path class="cls-4" d="M24.7,43.1l-2.4-4.1A2.5,2.5,0,0,1,24.9,37H39.1a2.5,2.5,0,0,1,2.6,2l-2.4,4.1A1.5,1.5,0,0,1,38.1,44H25.9A1.5,1.5,0,0,1,24.7,43.1Z"/>
+    <circle class="cls-4" cx="32" cy="32" r="3"/>
+</svg>
