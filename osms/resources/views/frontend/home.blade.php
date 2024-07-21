@@ -105,26 +105,43 @@
       <br>
       <div class="contact-box">
         <div class="contact-form">
-          <form>
+          <form action="{{route('contact-us')}}" method="POST">
+            @csrf
             <section>
-            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="name" value="{{old('name')}}" placeholder="Name" required>
             </section>
+            @error('name')
+            <span style="text-align: left;" class="FormVailidationErrors" >{{ $message }}</span>
+           @enderror
             <section>
-                <input type="text" name="subject" placeholder="Subject" required>
+                <input type="text" name="subject" value="{{old('subject')}}" placeholder="Subject" required>
             </section>
+            @error('subject')
+            <span style="text-align: left;" class="FormVailidationErrors" >{{ $message }}</span>
+           @enderror
             <section>
-            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="email" name="email" value="{{old('email')}}" placeholder="E-mail" required>
             </section>
+            @error('email')
+            <span style="text-align: left;" class="FormVailidationErrors" >{{ $message }}</span>
+           @enderror
             <section>
-            <input type="number" name="number" placeholder="Number" required>
+            <input type="number" name="number" value="{{old('number')}}" placeholder="Number" required>
             </section>
+            @error('number')
+            <span style="text-align: left;" class="FormVailidationErrors" >{{ $message }}</span>
+           @enderror
             <section>
-                <textarea name="message"  cols="20" rows="6" placeholder="How can we help you?"></textarea>
+                <textarea name="message"   cols="20" rows="6" placeholder="How can we help you?">{{old('message')}}</textarea>
             </section>
+            @error('message')
+            <span style="text-align: left;" class="FormVailidationErrors" >{{ $message }}</span>
+           @enderror
             <section>
                 <button type="submit">Save</button>
             </section>
           </form>
+          <br>
         </div>
         <div class="contact-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d237898.2899341742!2d70.4559623!3d21.3046624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9a943f9e45f3%3A0xf670c21ac8392d5e!2sUjala%20Circle!5e0!3m2!1sen!2sin!4v1721490349920!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

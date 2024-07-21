@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\EnginnerController;
 use App\http\Controllers\Admin\AllRequestController;
 
+//custom controller
+use App\Http\Controllers\ContactController;
+
 Route::get('/',function(){
 return view('frontend.home');
 })->name('name');
@@ -69,4 +72,10 @@ Route::get('/admin',[HomeController::class,'index'])->name('admin');
 Route::resource('/admin/enginner',EnginnerController::class);
 Route::resource('/admin/allrequests', AllRequestController::class);
 });
+
+
+
+//Custom route
+
+Route::post('/contact-us',[ContactController::class, 'index'])->name('contact-us');
 

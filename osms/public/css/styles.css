@@ -217,7 +217,7 @@ header nav .second-container li a:hover {
 }
 .contact-container .contact-box div{
     width:42vw;
-    height:90vh;
+    max-height: max-content;
     border: 2px solid rgb(255, 0, 51);
     border-radius: 6px;
 }
@@ -510,7 +510,7 @@ outline: 2px solid blueviolet;
 
 @media screen and (max-width: 1200px) {
     .contact-container .contact-box div{
-        height: 70vh;
+       width: 46vw;
     }
 }
 @media screen and (max-width: 800px) {
@@ -529,7 +529,6 @@ outline: 2px solid blueviolet;
     .contact-container .contact-box div{
         width: 80vw;
         margin: 9px 0;
-        height: 86vh;
     }
     .contact-form form input,
     .contact-form form textarea,
