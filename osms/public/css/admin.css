@@ -4,11 +4,31 @@
     font-family: sans-serif;
 }
 
+
 .userRequest{
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    height: 80vh;
+    height: 70vh;
+    overflow-y: scroll;
+
+}
+
+.userRequest div{
+    background-color: black;
+    color: white;
+}
+
+.userRequest div a{
+    padding: 6px;
+    border: 2px solid rgb(255, 0, 51);
+    background-color: tomato;
+    color: white;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.assign-container{
+    height: 72vh;
     overflow-y: scroll;
 }

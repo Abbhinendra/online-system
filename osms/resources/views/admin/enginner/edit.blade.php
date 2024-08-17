@@ -21,6 +21,13 @@ Add New Technician
           @error('number')
           <span style="color: red">{{$message}}</span>
           @enderror
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email  <span style="color: red">*</span></label>
+            <input type="email" name="email" value="{{old('email',$worker->email)}}" class="form-control" required>
+          </div>
+          @error('email')
+          <span style="color: red">{{$message}}</span>
+          @enderror
           <br>
         <button type="submit" class="btn btn-info">Save</button>
       </form>

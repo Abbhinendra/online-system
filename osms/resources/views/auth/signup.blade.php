@@ -29,6 +29,13 @@
       <label for="exampleInputPassword1">Confirm Password</label>
       <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" autocomplete="off" required>
     </div>
+    <div>
+        {!!htmlFormSnippet()!!}
+        @if ($errors->has('g-recaptcha-response'))
+        <span class="FormVailidationErrors" >{{ $errors->first('g-recaptcha-response') }}</span>
+        @endif
+    </div>
+    <br>
     <button type="submit" class="btn btn-sm SingUp">SingUp</button>
   </form>
 </div>

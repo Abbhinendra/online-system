@@ -11,7 +11,8 @@ class Technicine extends Model
     protected $table='technicines';
     protected $fillable=[
               'name',
-              'number'
+              'number',
+              'email'
     ];
 
 }

@@ -30,7 +30,8 @@ class StoreTechnicianRequest extends FormRequest
     {
         return [
             'name'=>'required|string|min:3|max:100',
-            'number'=>['required', 'regex:/^(\+?\d{1,3}[- ]?)?\d{10}$/','max:10']
+            'number'=>['required', 'regex:/^(\+?\d{1,3}[- ]?)?\d{10}$/','max:10'],
+            'email'=>'required|string|email|max:100'
         ];
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Request as UserRequest;
+use App\Models\User;
+use App\Models\Technicine;
+use App\Jobs\SendEmailToWorker;
 class AllRequestController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class AllRequestController extends Controller
      */
     public function index()
     {
-        $userRequests=UserRequest::orderBy('id','desc')->get();
+        $userRequests=UserRequest::orderBy('id','desc')->paginate(6);
         return view('admin.allrequests.index', compact('userRequests'));
     }
 
@@ -58,7 +61,10 @@ class AllRequestController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.allrequests.edit');
+        $userRequest=UserRequest::find($id);
+        $user=User::find($userRequest->user_id);
+        $workers=Technicine::all();
+        return view('admin.allrequests.edit', compact('userRequest','user','workers'));
     }
 
     /**
@@ -70,7 +76,14 @@ class AllRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $userRequest=UserRequest::find($id);
+        $request->validate([
+        'worker'=>'required|integer',
+        ]);
+        $userRequest->update(['technicine_id'=>$request->input('worker')]);
+        $technicine=Technicine::find($request->input('worker'));
+        SendEmailToWorker::dispatch($technicine,$userRequest);
+        return redirect()->back();
     }
 
     /**

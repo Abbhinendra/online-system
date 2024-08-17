@@ -9,11 +9,12 @@
     <link rel="shortcut icon" href="{{asset('images/aclogo.avif')}}" type="image/x-icon">
     @stack('css')
     <title>@yield('osms','OSMS')</title>
+    {!!htmlScriptTagJsApi()!!}
 </head>
 <body>
     @include('layouts.header')
     @yield('content')
-   
+
     @include('layouts.footer')
 </body>
 <script src="{{asset('js/main.js')}}"></script>

@@ -78,4 +78,5 @@ Route::resource('/admin/allrequests', AllRequestController::class);
 //Custom route
 
 Route::post('/contact-us',[ContactController::class, 'index'])->name('contact-us');
+Route::get('/pdf/{id}',[PDFController::class,'generatePDFforTechnician'])->name('pdf');
 

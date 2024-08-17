@@ -29,4 +29,8 @@ class Request extends Model
     public function technicine(){
         return $this->belongsTo(Technicine::class);
     }
+
+    public function user(){
+      return  $this->belongsTo(User::class);
+    }
 }

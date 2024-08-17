@@ -18,4 +18,10 @@ All Requests
 
     @endforelse
 </div>
+<div>
+    {{$userRequests->links('pagination::bootstrap-5')}}
+  </div>
 @endsection
+
+
+

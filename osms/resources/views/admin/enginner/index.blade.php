@@ -13,6 +13,7 @@ Technicians
             <th scope="col">Sno</th>
             <th scope="col">Name</th>
             <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -25,6 +26,7 @@ Technicians
             <th scope="row">{{$sno++}}</th>
             <td>{{$worker->name}}</td>
             <td>{{$worker->number}}</td>
+            <td>{{$worker->email}}</td>
             <td style="display: flex;">
                 <div>
                 <a style="margin: 0 6px;" href="{{route('enginner.show',$worker->id)}}" class="btn btn-sm btn-info">View</a>

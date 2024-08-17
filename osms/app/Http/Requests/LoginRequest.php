@@ -27,6 +27,7 @@ class LoginRequest extends FormRequest
             'email'=>'required|string|email|max:100|unique:users,email',
             'password'=>['required','string','confirmed','min:6','max:8', new passwordCheck()],
             'name' => 'required|string|regex:/^[a-zA-Z\s]+$/|max:60',
+            'g-recaptcha-response'=>'recaptcha'
         ];
     }
     public function messages(){

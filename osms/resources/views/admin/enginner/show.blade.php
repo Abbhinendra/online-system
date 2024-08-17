@@ -20,6 +20,10 @@ Technician
             <th scope="col">Phone Number</th>
             <td>{{$worker->number??''}}</td>
           </tr>
+          <tr>
+            <th scope="col">Email</th>
+            <td>{{$worker->email??''}}</td>
+          </tr>
       </table>
 </div>
 @endsection
