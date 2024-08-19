@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Request as userRequest;
-use App\Models\User;
-class HomeController extends Controller
+use Gate;
+class assignworkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userRequest=userRequest::count();
-        $user=User::count();
-        return view('home', compact('userRequest', 'user'));
+        $userRequests=userRequest::with(['technicine','user'])->where('technicine_id','!=',null)->where('user_id','!=',null)->orderBy('id','desc')->get();
+        return view('admin.assignwork.index', compact('userRequests'));
     }
 
     /**
@@ -83,6 +82,16 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Gate::allows('isAdmin')){
+        $userRequest=userRequest::find($id);
+        if($userRequest){
+            $userRequest->delete();
+        }
+        return redirect()->back();
     }
+    else{
+        abort(403);
+    }
+}
+
 }

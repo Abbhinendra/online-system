@@ -94,7 +94,12 @@ Assign to worker
           <div class="form-group">
           <label for="exampleInputEmail1">Assign to technician</label>
            <select name="worker" class="form-control">
+            @if(!$userRequest->technicine)
             <option value="">Select please</option>
+            @endif
+            @if ($userRequest->technicine)
+            <option selected value="{{$userRequest->technicine->id}}">{{$userRequest->technicine->name}}</option>
+            @endif
             @foreach ($workers as $worker)
              <option value="{{$worker->id}}">{{$worker->name}}</option>
             @endforeach

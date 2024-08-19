@@ -32,3 +32,33 @@
     height: 72vh;
     overflow-y: scroll;
 }
+
+.dashboard{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.dashboard div{
+    border: 1.08px solid rgb(71, 70, 70);
+    border-radius: 2px;
+    width: 36vw;
+    height: 36vh;
+    margin: 8px 8px;
+}
+.dashboard div main{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px;
+}
+@media screen and (max-width: 460px) {
+    .dashboard div{
+        border: 1.08px solid rgb(71, 70, 70);
+        border-radius: 2px;
+        width: 80vw;
+        height: 36vh;
+        margin: 8px 8px;
+    }
+}

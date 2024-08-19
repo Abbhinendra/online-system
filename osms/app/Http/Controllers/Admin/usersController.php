@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Technicine;
-use App\Http\Requests\StoreTechnicianRequest;
+use App\Models\User;
+use App\Http\Requests\AdminUserStoreRequest;
+use App\Http\Requests\AdminUserUpdateRequest;
 use Gate;
-class EnginnerController extends Controller
+class usersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class EnginnerController extends Controller
      */
     public function index()
     {
-        $workers=Technicine::orderBy('id','desc')->get();
-        return view('admin.enginner.index', compact('workers'));
+        $users=User::orderBy('id','desc')->get();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -26,10 +27,11 @@ class EnginnerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   if(Gate::allows('isAdmin')){
-        return view('admin.enginner.create');
-        }
-        else{
+    {
+        if(Gate::allows('isAdmin')){
+        $roles=['Admin','User'];
+        return view('admin.users.create',compact('roles'));
+        }else{
             abort(403);
         }
     }
@@ -40,11 +42,11 @@ class EnginnerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTechnicianRequest $request)
+    public function store(AdminUserStoreRequest $request)
     {
         if(Gate::allows('isAdmin')){
-        $worker=Technicine::create($request->all());
-        return redirect()->route('enginner.index');
+        $user=User::create($request->all());
+        return redirect()->route('users.index');
         }else{
             abort(403);
         }
@@ -57,17 +59,13 @@ class EnginnerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   if(Gate::allows('isAdmin')){
-        $worker=Technicine::findOrFail($id);
-        if($worker){
-            return view('admin.enginner.show', compact('worker'));
+    {
+        if(Gate::allows('isAdmin')){
+        $user=User::find($id);
+        return view('admin.users.show', compact('user'));
+        }else{
+            abort(403);
         }
-        else{
-         //logic When record not found;
-        }
-    }else{
-        abort(403);
-    }
     }
 
     /**
@@ -77,17 +75,15 @@ class EnginnerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   if(Gate::allows('isAdmin')){
-        $worker=Technicine::findOrFail($id);
-        if($worker){
-           return view('admin.enginner.edit', compact('worker'));
+    {
+        if(Gate::allows('isAdmin')){
+        $user=User::find($id);
+        session()->put('userId',$user->id);
+        $roles=['Admin','User'];
+        return view('admin.users.edit', compact('user','roles'));
+        }else{
+            abort(403);
         }
-        else{
-         //logic When record not found;
-        }
-    }else{
-        abort(403);
-    }
     }
 
     /**
@@ -97,17 +93,14 @@ class EnginnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreTechnicianRequest $request, $id)
+    public function update(AdminUserUpdateRequest $request, $id)
     {
         if(Gate::allows('isAdmin')){
-        $worker=Technicine::findOrFail($id);
-        if($worker){
-           $worker->update($request->all());
-           return redirect()->route('enginner.index');
+        $user=User::find($id);
+        if($user){
+            $user->update($request->all());
         }
-        else{
-         //logic When record not found;
-        }
+        return redirect()->route('users.index');
     }else{
         abort(403);
     }
@@ -122,16 +115,12 @@ class EnginnerController extends Controller
     public function destroy($id)
     {
         if(Gate::allows('isAdmin')){
-        $worker=Technicine::findOrFail($id);
-        if($worker){
-            $worker->delete();
-            return redirect()->back();
+        $user=User::find($id);
+        if($user){
+            $user->delete();
         }
-        else{
-            //login to if delection failed;
-        }
-    }
-    else{
+        return redirect()->back();
+    }else{
         abort(403);
     }
     }

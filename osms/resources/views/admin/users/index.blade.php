@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('pagename')
-Technicians
+Users
 @endsection
 @section('admincontent')
 <div class="container">
-<a href="{{route('enginner.create')}}" class="btn btn-info">Add Technician</a>
+<a href="{{route('users.create')}}" class="btn btn-info">Add user</a>
 </div>
 <div class="container my-4">
     <main class="table-scroll">
@@ -13,8 +13,8 @@ Technicians
           <tr>
             <th scope="col">Sno</th>
             <th scope="col">Name</th>
-            <th scope="col">Phone Number</th>
             <th scope="col">Email</th>
+            <th scope="col">Type</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -22,20 +22,20 @@ Technicians
             @php
                 $sno=1;
             @endphp
-        @foreach ($workers as $worker)
+        @foreach ($users as $user)
           <tr>
             <th scope="row">{{$sno++}}</th>
-            <td>{{$worker->name}}</td>
-            <td>{{$worker->number}}</td>
-            <td>{{$worker->email}}</td>
+            <td>{{$user->name ?? ''}}</td>
+            <td>{{$user->email ?? ''}}</td>
+            <td>{{$user->type ?? ''}}</td>
             <td style="display: flex;">
                 <div>
-                <a style="margin: 0 6px;" href="{{route('enginner.show',$worker->id)}}" class="btn btn-sm btn-info">View</a>
+                <a style="margin: 0 6px;" href="{{route('users.show',$user->id)}}" class="btn btn-sm btn-info">View</a>
                 </div>
                 <div>
-                <a  style="margin: 0 6px;" href="{{route('enginner.edit',$worker->id)}}" class="btn btn-sm btn-info">Edit</a>
+                <a  style="margin: 0 6px;" href="{{route('users.edit',$user->id)}}" class="btn btn-sm btn-info">Edit</a>
                 </div>
-                <form action="{{route('enginner.destroy',$worker->id)}}" method="POST">
+                <form action="{{route('users.destroy',$user->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button style="margin: 0 6px;" type="submit" onclick=" return confirm('Are You Sure!.') " class="btn btn-sm btn-danger">Delete</button>

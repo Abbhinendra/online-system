@@ -8,6 +8,7 @@ use App\Models\Request as UserRequest;
 use App\Models\User;
 use App\Models\Technicine;
 use App\Jobs\SendEmailToWorker;
+use Gate;
 class AllRequestController extends Controller
 {
     /**
@@ -60,11 +61,15 @@ class AllRequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   if(Gate::allows('isAdmin')){
         $userRequest=UserRequest::find($id);
         $user=User::find($userRequest->user_id);
         $workers=Technicine::all();
         return view('admin.allrequests.edit', compact('userRequest','user','workers'));
+    }
+    else{
+        abort(403);
+    }
     }
 
     /**
@@ -75,7 +80,7 @@ class AllRequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   if(Gate::allows('isAdmin')){
         $userRequest=UserRequest::find($id);
         $request->validate([
         'worker'=>'required|integer',
@@ -83,7 +88,11 @@ class AllRequestController extends Controller
         $userRequest->update(['technicine_id'=>$request->input('worker')]);
         $technicine=Technicine::find($request->input('worker'));
         SendEmailToWorker::dispatch($technicine,$userRequest);
-        return redirect()->back();
+        return redirect()->route('assignwork.index');
+    }
+    else{
+        abort(403);
+    }
     }
 
     /**

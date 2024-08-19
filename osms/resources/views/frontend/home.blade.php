@@ -32,72 +32,22 @@
         </div>
     </div>
     <br>
+    @if($services>0)
     <center><h1>Our Services</h1></center>
     <div class="my-services">
+        @foreach ($servicesValue as $value)
         <div class="card">
             <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
+            <img src="{{ $value->getFirstMediaUrl('images') }}" alt="">
             </div>
             <br>
             <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
+            <span class="wrap">{{$value->title}}</span>
             </div>
         </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-card">
-            <img src="https://th.bing.com/th/id/OIP.fuCWH-RU4QRR66gsTJ0c8AHaFG?rs=1&pid=ImgDetMain" alt="">
-            </div>
-            <br>
-            <div class="btn-title">
-            <span class="wrap">Ac Repairing Services and consulting trainig</span> <span class="wrap"><a href="">View</button></a></span>
-            </div>
-        </div>
+        @endforeach
     </div>
+    @endif
     <br>
     <br>
     <main class="contact-container">
@@ -144,7 +94,9 @@
           <br>
         </div>
         <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d237898.2899341742!2d70.4559623!3d21.3046624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9a943f9e45f3%3A0xf670c21ac8392d5e!2sUjala%20Circle!5e0!3m2!1sen!2sin!4v1721490349920!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            @foreach ( $map as $value )
+            <iframe src="{{$value->mapaddress}}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            @endforeach
         </div>
       </div>
     </main>

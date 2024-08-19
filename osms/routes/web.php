@@ -12,12 +12,21 @@ use App\Http\Controllers\changePasswordController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\EnginnerController;
 use App\http\Controllers\Admin\AllRequestController;
+use App\http\Controllers\Admin\assignworkController;
+use App\http\Controllers\Admin\usersController;
+use App\http\Controllers\Admin\serviceController;
+use App\http\Controllers\Admin\changePasswordController as AdminChange;
 
 //custom controller
 use App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\MapController;
+use App\Models\Service;
+use App\Models\Map;
 Route::get('/',function(){
-return view('frontend.home');
+$services=Service::count();
+$servicesValue=Service::all();
+$map=Map::all();
+return view('frontend.home',compact('services','servicesValue','map'));
 })->name('name');
 
 //Registration routes;
@@ -67,10 +76,15 @@ Route::post('/changePass',[changePasswordController::class,'changePass'])->name(
 
 //Admin Area Routes
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth','can:isAdmin'])->group(function(){
 Route::get('/admin',[HomeController::class,'index'])->name('admin');
 Route::resource('/admin/enginner',EnginnerController::class);
 Route::resource('/admin/allrequests', AllRequestController::class);
+Route::resource('/admin/assignwork', assignworkController::class);
+Route::resource('/admin/users',usersController::class);
+Route::resource('/admin/services', serviceController::class);
+Route::resource('/admin/maps', MapController::class);
+Route::resource('/admin/changepassword', AdminChange::class);
 });
 
 

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Request as userRequest;
-use App\Models\User;
-class HomeController extends Controller
+use Gate;
+use App\Models\Map;
+class MapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userRequest=userRequest::count();
-        $user=User::count();
-        return view('home', compact('userRequest', 'user'));
+        $map=Map::all();
+        return view('admin.maps.index', compact('map'));
     }
 
     /**
@@ -49,7 +47,15 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        if(Gate::allows('isAdmin')){
+           $map=Map::find($id);
+           if($map){
+            return view('admin.maps.show', compact('map'));
+           }
+        }
+        else{
+            abort(403);
+        }
     }
 
     /**
@@ -60,7 +66,15 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Gate::allows('isAdmin')){
+            $map=Map::find($id);
+            if($map){
+             return view('admin.maps.edit', compact('map'));
+            }
+         }
+         else{
+             abort(403);
+         }
     }
 
     /**
@@ -72,7 +86,20 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Gate::allows('isAdmin')){
+            $map=Map::find($id);
+            if($map){
+             $request->validate([
+             'mapaddress'=>'required|url|max:460',
+             ]);
+             $map->update($request->all());
+             return redirect()->route('maps.index');
+            }
+         }
+         else{
+             abort(403);
+         }
+
     }
 
     /**

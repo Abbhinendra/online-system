@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Request as userRequest;
 use App\Models\User;
-class HomeController extends Controller
+use Gate;
+use App\Rules\passwordCheck;
+class changePasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userRequest=userRequest::count();
-        $user=User::count();
-        return view('home', compact('userRequest', 'user'));
+        $user=auth()->user();
+        return view('admin.changepassword.index', compact('user'));
     }
 
     /**
@@ -72,7 +72,21 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Gate::allows('isAdmin')){
+           $user=User::find($id);
+           if($user){
+              $request->validate([
+                'password'=>['required','string','confirmed','min:6','max:8', new passwordCheck()],
+              ]);
+              $user->update([
+              'password'=>$request->password
+              ]);
+           }
+           return redirect()->back()->with('message','The Password Change Successfully.');
+        }
+        else{
+            abort(403);
+        }
     }
 
     /**

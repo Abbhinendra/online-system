@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('pagename')
-Add New Technician
+Edit Technician
 @endsection
 @section('admincontent')
 <div class="container my-4">

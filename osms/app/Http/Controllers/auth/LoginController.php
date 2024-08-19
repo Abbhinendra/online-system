@@ -21,7 +21,13 @@ class LoginController extends Controller
     public function login(Request $request){
     $checkLogin=$request->only('email','password');
     if(Auth::attempt($checkLogin)){
+       $user=Auth::user();
+        if($user->type!='Admin'){
         return redirect()->route('name')->with('message','You Are Logged in!.');
+        }
+        else{
+        return redirect()->route('admin');
+        }
     }
     else{
         return redirect()->back()->with('error', 'invalid credentials!.');
@@ -65,6 +71,6 @@ public function changepassword(Request $request)
     session()->forget('reset-user-email');
     return redirect()->route('loginpage')->with('message','Password Change Successfully!.');
 }
- 
+
 }
 }
