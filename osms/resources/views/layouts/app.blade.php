@@ -31,6 +31,8 @@
     }
     .table-scroll{
     overflow-x: scroll;
+    height: auto;
+    max-height: 80vh;
     }
     </style>
   </head>

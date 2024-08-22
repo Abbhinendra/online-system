@@ -38,6 +38,12 @@
     <a  href="{{route('resetpassword')}}">Forgot Password?</a>
     <button type="submit" class="btn btn-sm SingUp">Login</button>
   </form>
+  <div style="display: flex; justify-content:center; align-items:center;">
+   <a href="{{route('google.login')}}" style="text-align: center; border:none; outline:2px solid rgb(161, 1, 46); border-radius:6px; cursor:pointer; padding:6px; text-decoration:none; background:rgb(84, 0, 129); color:white;">
+    <i class="fa-brands fa-google"></i>
+    <span>Login with Google</span>
+    </a>
+    <div>
 </div>
 <br>
 <br>
@@ -53,4 +59,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/527feac5c0.js" crossorigin="anonymous"></script>
 @endpush

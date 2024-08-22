@@ -20,6 +20,7 @@ use App\http\Controllers\Admin\changePasswordController as AdminChange;
 //custom controller
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Models\Service;
 use App\Models\Map;
 Route::get('/',function(){
@@ -94,3 +95,5 @@ Route::resource('/admin/changepassword', AdminChange::class);
 Route::post('/contact-us',[ContactController::class, 'index'])->name('contact-us');
 Route::get('/pdf/{id}',[PDFController::class,'generatePDFforTechnician'])->name('pdf');
 
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
